@@ -3,23 +3,23 @@ function MoreUsedLetter(text){
     let max = 0;
     let result = "";
 
-    for(let letra of text){
+    for(let letra of text.replace(/\s/g,'')){
         if(!mapeo[letra]){
             mapeo[letra]=1;
         }
         else{
             mapeo[letra]++;
         }
-    }
+    } 
 
     for(let letra in mapeo){
-        if(mapeo[letra].toString().trim().length === 1 && mapeo[letra] > max){
+        
+        if(mapeo[letra] > max){
             max = mapeo[letra];
             result = letra;
         }
     }
-
-    console.log(max);
+    console.log(result);
 }
 
-MoreUsedLetter("p h  h hhhi en so  ent iiiiipppppppppp  p");
+MoreUsedLetter("este es un texto que voy a probar");
